@@ -17,8 +17,9 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
     }
     body {
-        background-color: #E9E9E9;  
         font-family: 'Do Hyeon', sans-serif;
+        color: #DADADA;
+        background-color: #1D1D1D;
     }
 `;
 
