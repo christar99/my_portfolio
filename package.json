@@ -31,7 +31,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https//christar99/github.io/my_portfolio",
+  "homepage": "https://christar99.github.io/my-portfolio",
   "browserslist": {
     "production": [
       ">0.2%",
