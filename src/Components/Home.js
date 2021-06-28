@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+
+const randomColor = `hsla(${Math.floor(Math.random() * 10000)}, 98%, 56%, 0.25)`;
+
 const fadein = keyframes`
     from {
-        opacity: 0;
+        opacity: 0.3;
+        color: ${randomColor};
     }
     to {
         opacity: 1;
@@ -41,24 +45,32 @@ const rubberBand = keyframes`
 `;
 
 const Section = styled.div`
-    animation: ${fadein} 2s;
     padding-left: 300px;
+    width: 100vw;
+
+    @media only screen and (max-width: 1024px){
+        padding: 0;
+    }
 `;
 
 const Container = styled.div`
-    width: 100vw;
+    width: 55vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media only screen and (max-width: 768px){
+        width: 75vw;
+    }
 `;
 
 
 const Title = styled.div`
-    font-size: 3rem;
+    width: 100vw;
+    display: inline-block;
     user-select: none;
     z-index: 10;
-
     &:hover {
         cursor: default;
     }
@@ -69,30 +81,53 @@ const HiddenValue = styled.div`
 `;
 
 const MainTitle = styled.div`
-    margin-bottom: 1rem;
+    width: 55vw;
+    margin-bottom: 1vh;
+    display: inline-block;
+    
+    @media only screen and (max-width: 768px){
+        width: 75vw;
+    }
 `;
 
 const LetterSpan = styled.span`
     display: inline-block;
     margin: 1px;
-    font-size: 4rem;
+    font-size: 6rem;
+    animation: ${fadein} ${props => props.index * 0.3}s;
+    
     &:hover {
-        color: ${props => props.color};
+        color: ${randomColor};
         transition: all .3s ease-out;
         animation: ${rubberBand} linear 1s;
+    }
+
+    @media only screen and (max-width: 768px){
+        font-size: 3.3rem;
     }
 `;
 
 const Name = styled.span`
-    font-size: 3.5rem;
+    font-size: 7rem;
     color: #F0FF33;
-    text-shadow: .15rem .15rem #DC8011;
+    text-shadow: .3rem .3rem #DC8011;
+
+    @media only screen and (max-width: 768px){
+        font-size: 3.3rem;
+    }
 `;
 
 const SubTitle = styled.p`
-    font-size: 1.5rem;
+    width: 55vw;
+    font-size: 3.5rem;
     text-decoration: underline;
+
+    @media only screen and (max-width: 768px){
+        font-size: 2rem;
+    }
 `;
+
+
 
 const Home = () => {
     const value = useRef();
@@ -106,7 +141,6 @@ const Home = () => {
         setLetterUnit(letter);
     }, [value]);
 
-    const randomColor = `hsla(${Math.floor(Math.random() * 10000)}, 98%, 56%, 0.25)`;
 
     return (
         <Section className="section">
@@ -122,7 +156,7 @@ const Home = () => {
                                 (index === 6 && <br />) ||
                                 (index === 19 && <br />) ||
                                 (index === 20 && <Name>이동아</Name>) ||
-                                <LetterSpan color={randomColor}>{letter}</LetterSpan>
+                                <LetterSpan index={index}>{letter}</LetterSpan>
                             )
                         })}
                     </MainTitle>

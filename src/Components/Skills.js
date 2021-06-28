@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-
+const randomColor = `hsla(${Math.floor(Math.random() * 10000)}, 98%, 56%, 0.25)`;
 
 const rubberBand = keyframes`
     from {
@@ -37,6 +37,10 @@ const Section = styled.div`
     width: 100vw;
     height: 100vh;
     padding-left: 300px;
+
+    @media only screen and (max-width:1024px) {
+        padding: 0;
+    }
 `;
 
 const Container = styled.div`
@@ -45,6 +49,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media only screen and (max-width: 1024px) {
+        align-items: center;
+    }
 `;
 
 const HiddenValue = styled.div`
@@ -54,18 +62,24 @@ const HiddenValue = styled.div`
 const Title = styled.div`
     display: flex;
     margin-bottom: 4vh;
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 2vh;
+    }
 `;
 
 const LetterSpan = styled.div`
     cursor: default;
     display: inline-block;
-    font-size: 3rem;
-    height: 50px;
+    font-size: 6rem;
 
     &:hover {
-        color: ${props => props.color};
+        color: ${randomColor};
         transition: all .3s ease-out;
         animation: ${rubberBand} linear 1s;
+    }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 3.3rem;
     }
 `;
 
@@ -74,6 +88,10 @@ const LetterSpan = styled.div`
 const SkillList = styled.div`
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: 1024px) {
+        align-items: center;
+    }
 `;
 
 
@@ -82,11 +100,32 @@ const ImageContainer = styled.div`
     height: 10%;
     display: flex;
     margin-top: 0.5vh;
-    margin-bottom: 5vw;
+    margin-bottom: 10vh;
+    
+    :last-child {
+        margin-bottom: 0;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        margin-bottom: 80px;
+        justify-content: center;
+        margin-bottom: 10vh;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
 `;
 
 const Span = styled.span`
-    font-size: 30px;
+    font-size: 4rem;
+    @media only screen and (max-width: 1024px) {
+        margin-bottom: 2vh;
+    }
+    @media only screen and (max-width: 768px) {
+        font-size: 2.5rem;
+        margin-bottom: 1vh;
+    }
 `;
 
 const Image = styled.div`
@@ -112,7 +151,6 @@ const Skills = () => {
         setLetterUnit(letter);
     }, [value]);
 
-    const randomColor = `hsla(${Math.floor(Math.random() * 10000)}, 98%, 56%, 0.25)`;
 
     return (
         <Section className="section">
@@ -123,7 +161,7 @@ const Skills = () => {
                         return (
                             (index === 6 && `　`) ||
                             (index === 8 && `　`) ||
-                            <LetterSpan color={randomColor}>{letter}</LetterSpan>
+                            <LetterSpan>{letter}</LetterSpan>
                         )
                     })}
                 </Title>

@@ -5,17 +5,17 @@ const randomColor = `hsla(${Math.floor(Math.random() * 10000)}, 98%, 56%, 0.25)`
 
 const OnOffSwitch = styled.button`
     all: unset;
-    width: 7rem;
-    height: 2rem;
+    width: 15rem;
+    height: 4rem;
     background-color: ${randomColor};
-    border-radius: 2rem;
+    border-radius: 4rem;
     position: absolute;
     z-index: 10;
     top: 20px;
     right: 20px;
-    font-size: 1rem;
+    font-size: 1.8rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 
     &:hover{
@@ -25,13 +25,13 @@ const OnOffSwitch = styled.button`
 
 const OscillatorText = styled.span`
     position: fixed;
-    margin-right: 25px;
+    margin-right: 35px;
 `;
 
 const OnOrOff = styled.span`
     display: inline-block;
-    margin-left: 70px;
-    font-size: 1.2rem;
+    margin-left: 80px;
+    font-size: 2rem;
     color: #C5480A;
 `;
 
@@ -223,6 +223,7 @@ const Canvas = () => {
             }
         }
 
+
         const loop = () => {
             if (!ctx.running) return;
 
@@ -234,10 +235,12 @@ const Canvas = () => {
             ctx.lineWidth = 1;
 
 
-            for (let i = 0, tendril; i < settings.trails; i++) {
-                tendril = tendrils[i];
-                tendril.update();
-                tendril.draw();
+            for (let i = 1, tendril; i < settings.trails; i++) {
+                if(tendrils.length > 1){
+                    tendril = tendrils[i];
+                    tendril.update();
+                    tendril.draw();
+                }
             }
 
             ctx.frame++;
