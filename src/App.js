@@ -6,7 +6,7 @@ import ContactMe from "Components/ContactMe";
 import Skills from "Components/Skills";
 import Portfolio from "Components/Portfolio";
 import Canvas from "Components/Canvas";
-import "../src/Components/css/ForNavigation.css";
+import "Components/css/ForNavigation.css";
 
 class App extends React.Component {
     render() {
