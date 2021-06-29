@@ -13,16 +13,12 @@
 }
 
 #fp-nav ul li a.active span {
-  font-size: 4.3rem;
-  color: #F1F1F1;
+  font-size: 4.3rem !important;
+  color: #F1F1F1 !important;
 }
 
 #fp-nav ul li:hover .fp-tooltip {
   display: none !important;
-}
-
-#fp-nav ul li:hover a.active span {
-  color: #F1F1F1;
 }
 
 @media (max-width: 1024px) {
