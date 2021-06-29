@@ -91,10 +91,10 @@
 
 @media(max-width: 1024px) {
     .fp-controlArrow.fp-prev {
-        left: 0;
+        left: 0 !important;
     }
     .fp-controlArrow.fp-next {
-        right: 0;
+        right: 0 !important;
     }
 }
 
