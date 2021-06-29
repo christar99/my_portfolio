@@ -94,10 +94,10 @@
 
 @media (max-width: 768px) {
   .fp-controlArrow.fp-prev {
-    border-width: 19px 17px 19px 0;
+    border-width: 19px 17px 19px 0 !important;
   }
   .fp-controlArrow.fp-next {
-    border-width: 19px 0 19px 17px;
+    border-width: 19px 0 19px 17px !important;
   }
 }
 /*# sourceMappingURL=ForNavigation.css.map */
