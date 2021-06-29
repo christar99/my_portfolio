@@ -5,11 +5,11 @@
 }
 
 #fp-nav ul li {
-  margin-bottom: 5vh;
+  margin-bottom: 5vh !important;
 }
 
 #fp-nav ul li a span {
-  background: none;
+  background: none !important;
 }
 
 #fp-nav ul li a.active span {
@@ -18,7 +18,7 @@
 }
 
 #fp-nav ul li:hover .fp-tooltip {
-  display: none;
+  display: none !important;
 }
 
 #fp-nav ul li:hover a.active span {
@@ -30,9 +30,9 @@
     display: none;
   }
   .fp-tableCell {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -44,15 +44,15 @@
 }
 
 .fp-sr-only {
-  overflow: unset;
-  clip: initial;
-  width: inherit;
-  font-size: 4rem;
-  color: #838383;
+  overflow: unset !important;
+  clip: initial !important;
+  width: inherit !important;
+  font-size: 4rem !important;
+  color: #838383 !important;
 }
 
 .fp-sr-only:hover {
-  color: #B8B8B8;
+  color: #B8B8B8 !important;
 }
 
 .fp-section.fp-table {
@@ -75,12 +75,12 @@
 }
 
 .fp-controlArrow.fp-prev {
-  left: 250px;
-  border-color: transparent gray transparent transparent;
+  left: 250px !important;
+  border-color: transparent gray transparent transparent !important;
 }
 
 .fp-controlArrow.fp-next {
-  border-color: transparent transparent transparent gray;
+  border-color: transparent transparent transparent gray !important;
 }
 
 @media (max-width: 1024px) {
