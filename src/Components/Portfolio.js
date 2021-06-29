@@ -192,7 +192,7 @@ const Portfolio = () => {
                                 <Content>
                                     &#10003;  영화, TV 현재상영작, 인기순위<br />
                                     &#10003;  검색기능 <br />
-                                    &#10003;  상세보기
+                                    &#10003;  상세보기, 티저영상
                                 </Content>
                                 <Summary># Stack </Summary>
                                 <Content>React, CSS(Styled Component), TMDB API(The Movie DB) </Content>
