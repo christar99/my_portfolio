@@ -15,8 +15,8 @@ const OnOffSwitch = styled.button`
     right: 20px;
     font-size: 1.8rem;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
 
     &:hover{
         cursor: pointer;
