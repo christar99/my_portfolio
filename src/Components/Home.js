@@ -67,7 +67,7 @@ const Container = styled.div`
 
 
 const Title = styled.div`
-    width: 100vw;
+    width: 1000px;
     display: inline-block;
     user-select: none;
     z-index: 10;
@@ -81,7 +81,7 @@ const HiddenValue = styled.div`
 `;
 
 const MainTitle = styled.div`
-    width: 55vw;
+    width: 100%;
     margin-bottom: 1vh;
     display: inline-block;
     
@@ -95,6 +95,7 @@ const LetterSpan = styled.span`
     margin: 1px;
     font-size: 6rem;
     animation: ${fadein} ${props => props.index * 0.3}s;
+    position: relative;
     
     &:hover {
         color: ${randomColor};

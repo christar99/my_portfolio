@@ -82,6 +82,8 @@ const Slide = styled.div ``;
 
 const Portfolios = styled.div`
     display: flex;
+    align-items: center;
+
 
     @media only screen and (max-width: 1024px) {
         flex-direction: column;
@@ -145,6 +147,25 @@ const Summary = styled.span `
     }
 `;
 
+const GitHubLink = styled.span`
+    font-size: 3rem;
+    margin-bottom: 0.5vw;
+
+    @media only screen and (max-width: 1024px) {
+        font-size: 3rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 2rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: #C5480A; 
+        text-decoration: underline;
+    }
+`;
+
 const Content = styled.p `
     font-size: 2.5rem;
     margin-bottom: 2vw;
@@ -196,6 +217,8 @@ const Portfolio = () => {
                                 </Content>
                                 <Summary># Stack </Summary>
                                 <Content>React, CSS(Styled Component), TMDB API(The Movie DB) </Content>
+
+                                <GitHubLink><a href="https://github.com/christar99/seecreen" target="_black"># GitHub Link</a></GitHubLink>
                             </Description>
                         </Portfolios>
                     </Slide>
@@ -214,6 +237,8 @@ const Portfolio = () => {
                                 </Content>
                                 <Summary># Stack </Summary>
                                 <Content>React, CSS(Styled Component), Riot API</Content>
+
+                                <GitHubLink><a href="https://github.com/christar99/lolcord" target="_black"># GitHub Link</a></GitHubLink>
                             </Description>
                         </Portfolios>
                     </Slide>

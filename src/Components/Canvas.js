@@ -30,7 +30,7 @@ const OscillatorText = styled.span`
 
 const OnOrOff = styled.span`
     display: inline-block;
-    margin-left: 80px;
+    margin-left: 8rem;
     font-size: 2rem;
     color: #C5480A;
 `;
