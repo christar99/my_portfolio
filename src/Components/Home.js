@@ -86,8 +86,10 @@ const MainTitle = styled.div`
     display: inline-block;
     
     @media only screen and (max-width: 768px){
-        min-width: 260px;
-        width: 75vw;
+        width: 450px;
+    }
+    @media only screen and (max-width: 450px){
+        width: 270px;
     }
 `;
 
