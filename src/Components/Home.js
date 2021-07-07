@@ -134,6 +134,7 @@ const SubTitle = styled.p`
 
     @media only screen and (max-width: 768px){
         font-size: 1.5rem;
+        min-width: 300px;
     }
 `;
 
