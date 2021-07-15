@@ -1,32 +1,32 @@
+// ===============================================
+// 이파일은 fullpage라이브러리와 css충돌이있어 제작자의 편향대로 커스텀하기위해 만듬
+// important 남발을 할 수 밖에없음
+
+
 #fp-nav {
     display: inline-block;
     width: 200px;
     margin-left: 3vw;
     ul {
         li {
-            margin-bottom: 5vh;
+            margin-bottom: 5vh !important;
             a {
                 span {
-                    background: none;
+                    background: none !important;
                 }
             }
+            
             a.active {
                 span {
-                    font-size: 4.3rem;
-                    color: #F1F1F1;
+                    font-size: 4.3rem !important;
+                    color: #F1F1F1 !important;
                 }
             }
         }
 
         li:hover {
             .fp-tooltip{
-                display: none;
-            }
-
-            a.active {
-                span {
-                    color: #F1F1F1;
-                }
+                display: none !important;
             }
         }
     }
@@ -38,7 +38,7 @@
     }
 
     .fp-tableCell {
-        display: flex;
+        display: flex !important;
         justify-content: center;
     }
 }
@@ -49,15 +49,15 @@
 }
 
 .fp-sr-only {
-    overflow: unset;
-    clip: initial;
-    width: inherit;
-    font-size: 4rem;
-    color: #838383;
+    overflow: unset !important;
+    clip: initial !important;
+    width: inherit !important;
+    font-size: 4rem !important;
+    color: #838383 !important;
 }
 
 .fp-sr-only:hover {
-    color: #B8B8B8;
+    color: #B8B8B8 !important;
 }
 
 .fp-section.fp-table {
@@ -66,7 +66,6 @@
 
 .fp-tableCell {
     width: 100vw;
-    // height: 100vh !important;
 }
 
 .fp-slides {
@@ -81,29 +80,29 @@
 }
 
 .fp-controlArrow.fp-prev {
-    left: 250px;
-    border-color: transparent gray transparent transparent;
+    left: 250px !important;
+    border-color: transparent gray transparent transparent !important;
 }
 
 
 .fp-controlArrow.fp-next {
-    border-color: transparent transparent transparent gray  ;
+    border-color: transparent transparent transparent gray !important;
 }
 
 @media(max-width: 1024px) {
     .fp-controlArrow.fp-prev {
-        left: 0;
+        left: 0 !important;
     }
     .fp-controlArrow.fp-next {
-        right: 0;
+        right: 0 !important;
     }
 }
 
 @media(max-width: 768px) {
     .fp-controlArrow.fp-prev {
-        border-width: 19px 17px 19px 0;
+        border-width: 19px 17px 19px 0 !important;
     }
     .fp-controlArrow.fp-next {
-        border-width: 19px 0 19px 17px;
+        border-width: 19px 0 19px 17px !important;
     }
 }
