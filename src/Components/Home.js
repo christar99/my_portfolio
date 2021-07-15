@@ -67,7 +67,7 @@ const Container = styled.div`
 
 
 const Title = styled.div`
-    width: 100vw;
+    width: 768px;
     display: inline-block;
     user-select: none;
     z-index: 10;
@@ -81,20 +81,24 @@ const HiddenValue = styled.div`
 `;
 
 const MainTitle = styled.div`
-    width: 55vw;
+    width: 100%;
     margin-bottom: 1vh;
     display: inline-block;
     
     @media only screen and (max-width: 768px){
-        width: 75vw;
+        width: 450px;
+    }
+    @media only screen and (max-width: 450px){
+        width: 270px;
     }
 `;
 
 const LetterSpan = styled.span`
     display: inline-block;
     margin: 1px;
-    font-size: 6rem;
+    font-size: 5.5rem;
     animation: ${fadein} ${props => props.index * 0.3}s;
+    position: relative;
     
     &:hover {
         color: ${randomColor};
@@ -102,18 +106,26 @@ const LetterSpan = styled.span`
         animation: ${rubberBand} linear 1s;
     }
 
+    @media only screen and (max-width: 1024px){
+        font-size: 3.5rem;
+    }
+
     @media only screen and (max-width: 768px){
-        font-size: 3.3rem;
+        font-size: 3rem;
     }
 `;
 
 const Name = styled.span`
-    font-size: 7rem;
+    font-size: 6.5rem;
     color: #F0FF33;
     text-shadow: .3rem .3rem #DC8011;
 
+    @media only screen and (max-width: 1024px){
+        font-size: 3.7rem;
+    }
+
     @media only screen and (max-width: 768px){
-        font-size: 3.3rem;
+        font-size: 3.2rem;
     }
 `;
 
@@ -123,7 +135,8 @@ const SubTitle = styled.p`
     text-decoration: underline;
 
     @media only screen and (max-width: 768px){
-        font-size: 2rem;
+        font-size: 1.5rem;
+        min-width: 300px;
     }
 `;
 

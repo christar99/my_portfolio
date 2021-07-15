@@ -61,7 +61,7 @@ const HiddenValue = styled.div`
 
 const Title = styled.div`
     display: flex;
-    margin-bottom: 4vh;
+    margin-bottom: 4.5vh;
     @media only screen and (max-width: 768px) {
         margin-bottom: 2vh;
     }
@@ -83,42 +83,91 @@ const LetterSpan = styled.div`
     }
 `;
 
+const Button = styled.div`
+    width: 50px;
+    height: 50px;
+    background: url(${props => props.bgURL});
+    background-size: cover;
+    margin-left: 20px;
+    margin-top: 10px;
 
+    &:hover {
+        cursor: pointer;
+    }
 
-const SkillList = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    @media only screen and (max-width: 1024px) {
-        align-items: center;
+    @media only screen and (max-width:768px) {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
     }
 `;
 
+const ExplainArea = styled.div`
+    width: 250px;
+    height: 90px;
+    background-color: #D1D1D1;
+    display: ${props => props.isButtonClicked ? "block" : "none"};
+    position: absolute;
+    margin-left: 210px;
+    margin-top: 10px;
+    border-radius: 10px;
 
-const ImageContainer = styled.div`
-    width: 100%;
-    height: 10%;
-    display: flex;
-    margin-top: 0.5vh;
-    margin-bottom: 10vh;
-    
-    :last-child {
-        margin-bottom: 0;
-    }
+    &::after {
+        border-top: 10px solid transparent; 
+        border-left: 0px solid transparent; 
+        border-right: 15px solid #D1D1D1;
+        border-bottom: 10px solid transparent; 
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 10px;
 
-    @media only screen and (max-width: 1024px) {
-        margin-bottom: 80px;
-        justify-content: center;
-        margin-bottom: 10vh;
-
-        :last-child {
-            margin-bottom: 0;
+        @media only screen and (max-width:768px) {
+            border-top: 0px solid transparent; 
+            border-left: 10px solid transparent; 
+            border-right: 10px solid transparent;
+            border-bottom: 5px solid #D1D1D1; 
+            left: 90px;
+            top: -5px;
         }
     }
+
+    @media only screen and (max-width:768px) {
+        margin: 0;
+        margin-top: 35px;
+        width: 200px;
+        height: 70px;
+    }
 `;
 
-const Span = styled.span`
+const Proficiency = styled.div `
+    height: 30px;
+    line-height: 30px;
+    font-size: 2rem;
+    color: #3D3D3D;
+
+    @media only screen and (max-width:768px) {
+        font-size: 1.5rem;
+        height: 20px;
+        padding: 2px;
+    }
+`;
+
+const SkillContainer = styled.div`
+    display: flex;
+    margin-bottom: 50px;
+
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column;
+        margin-left: 20vw;
+    }
+`;
+
+const SkillTitle = styled.span`
+    width: 160px;
     font-size: 4rem;
+    margin-right: 50px;
+
     @media only screen and (max-width: 1024px) {
         margin-bottom: 2vh;
     }
@@ -128,34 +177,51 @@ const Span = styled.span`
     }
 `;
 
-const Image = styled.div`
-    width: 100px;
-    height: 70px;
-    background: url(${props => props.bgURL}) no-repeat;
-    background-position: center center;
-    background-size: contain;
-    z-index: 20;
-    &:first-child {
-        width: 170px;
+const SkillList = styled.ul`
+    width: 750px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 768px) {
+        width: 400px;
     }
 `;
 
+const Skill = styled.li`
+    width: 300px;
+    list-style: disc;
+    font-size: 2.3rem;
+    margin-right: 50px;
+    margin-bottom: 10px;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 1.5rem;
+        width: 150px;
+        margin-bottom: 1vh;
+        margin-right: 20px;
+        margin-left: 10px;
+    }
+`;
 
 
 const Skills = () => {
     const value = useRef();
     const [letterUnit, setLetterUnit] = useState();
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     useEffect(() => {
         let letter = value.current.innerText.split("");
         setLetterUnit(letter);
     }, [value]);
 
+    const buttonClick = () => {
+        setIsButtonClicked(!isButtonClicked);
+    }
 
     return (
         <Section className="section">
             <Container>
-                <HiddenValue ref={value}>Skills &amp; Experience</HiddenValue>
+                <HiddenValue ref={value}>Skills</HiddenValue>
                 <Title> 
                     {letterUnit && letterUnit.map((letter, index) => {
                         return (
@@ -164,29 +230,47 @@ const Skills = () => {
                             <LetterSpan>{letter}</LetterSpan>
                         )
                     })}
+                    <Button 
+                        onClick={buttonClick}
+                        bgURL={require(`assets/explainButton-1.png`).default} 
+                    />
+                    <ExplainArea isButtonClicked={isButtonClicked}>
+                        <Proficiency>🌞 개발가능수준</Proficiency>
+                        <Proficiency>🌘 취미로개발</Proficiency>
+                        <Proficiency>🌚 기초수준 or 배운적이 있음</Proficiency>
+                    </ExplainArea>
                 </Title>
 
-                <SkillList>
-                    <Span>FrontEnd</Span>
-                    <ImageContainer>
-                        <Image bgURL={require(`assets/html-image.png`).default} />
-                        <Image bgURL={require(`assets/sass-logo.png`).default} />
-                        <Image bgURL={require(`assets/react-logo.png`).default} />
-                    </ImageContainer>
+                <SkillContainer>
+                    <SkillTitle>FrontEnd</SkillTitle>
+                    <SkillList>
+                        <Skill>🌞 HTML5</Skill>
+                        <Skill>🌞 CSS3</Skill>
+                        <Skill>🌞 JavaScript(ES5, ES6, ES7) </Skill>
+                        <Skill>🌞 React(React-hook)</Skill>
+                        <Skill>🌞 Styled-Component</Skill>
+                        <Skill>🌘 Sass</Skill>
+                    </SkillList>
+                </SkillContainer>
+                <SkillContainer>
+                    <SkillTitle>BackEnd</SkillTitle>
+                    <SkillList>
+                        <Skill>🌚 Java</Skill>
+                        <Skill>🌚 Apache</Skill>
+                        <Skill>🌚 Spring</Skill>
+                        <Skill>🌚 MySQL</Skill>
+                        <Skill>🌚 Oracle</Skill>
+                    </SkillList>
+                </SkillContainer>
+                <SkillContainer>
+                    <SkillTitle>ETC</SkillTitle>
+                    <SkillList>
+                        <Skill>Git / GitHub (형상관리, Version Control)</Skill>
+                        <Skill>VSCode(Tool)</Skill>
+                        <Skill>netlify </Skill>
+                    </SkillList>
+                </SkillContainer>
 
-                    <Span>BackEnd</Span>
-                    <ImageContainer>
-                        <Image bgURL={require(`assets/spring.png`).default} />
-                        <Image bgURL={require(`assets/mysql.png`).default} />
-                    </ImageContainer>
-
-                    <Span>Version Control &#38; Deployment</Span>
-                    <ImageContainer>
-                        <Image bgURL={require(`assets/github.png`).default} />
-                        <Image bgURL={require(`assets/git-logo.png`).default} />
-                        <Image bgURL={require(`assets/netlify.png`).default} />
-                    </ImageContainer>
-                </SkillList>
             </Container>
         </Section>
     );
