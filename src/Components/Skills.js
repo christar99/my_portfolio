@@ -144,7 +144,7 @@ const Proficiency = styled.div `
     height: 30px;
     line-height: 30px;
     font-size: 2rem;
-    color: #3D3D3D;
+    color: #181818;
 
     @media only screen and (max-width:768px) {
         font-size: 1.5rem;
