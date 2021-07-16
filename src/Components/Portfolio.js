@@ -82,75 +82,6 @@ const LetterSpan = styled.span`
     }
 `;
 
-const Button = styled.div`
-    width: 50px;
-    height: 50px;
-    background: url(${props => props.bgURL});
-    background-size: cover;
-    margin-left: 10px;
-
-    &:hover {
-        cursor: pointer;
-    }
-
-    @media only screen and (max-width:768px) {
-        width: 30px;
-        height: 30px;
-        margin: 10px 5px;
-    }
-`;
-
-const ExplainArea = styled.div`
-    width: 390px;
-    height: 30px;
-    background-color: #D1D1D1;
-    display: ${props => props.isButtonClicked ? "block" : "none"};
-    position: absolute;
-    border-radius: 0 3px;
-    margin-left: 260px;
-    margin-top: 10px;
-    padding: 5px;
-    color: #181818;
-    line-height: 20px;
-    font-size: 2rem;
-    z-index: 300;
-
-
-    &::after {
-        border-top: 5px solid transparent; 
-        border-left: 0px solid transparent; 
-        border-right: 5px solid #D1D1D1;
-        border-bottom: 5px solid transparent; 
-        content: "";
-        position: absolute;
-        left: -5px;
-        top: 5px;
-
-        @media only screen and (max-width:1200px) {
-            border-top: 0px solid transparent; 
-            border-left: 10px solid transparent; 
-            border-right: 10px solid transparent;
-            border-bottom: 5px solid #D1D1D1; 
-            left: 90px;
-            top: -5px;
-        }
-    }
-
-    @media only screen and (max-width:1200px) {
-        margin-left: 130px;
-        margin-top: 55px;
-        width: 200px;
-        height: 50px;
-    }
-
-    @media only screen and (max-width:768px) {
-        margin-left: 115px;
-        margin-top: 55px;
-        width: 200px;
-        height: 50px;
-    }
-`;
-
 const SlideContainer = styled.div `
     width: 100vw;
 `;
@@ -260,10 +191,19 @@ const Content = styled.p `
     }
 `;
 
-const Acquired = styled.div`
+const Click = styled.span`
     font-size: 2.5rem;
+    color: white;
+    display: flex;
+    @media only screen and (max-width: 768px) {
+        font-size: 2rem;
+    }
+`;
+
+const Acquired = styled.div`
     margin-bottom: 1vh;
-    color: #DFAC37;
+    margin-right: 10px;
+    color: ${props => props.isClick ? "#C5480A" : "#DFAC37"};
 
     &:hover {
         cursor: pointer;
@@ -271,9 +211,7 @@ const Acquired = styled.div`
         text-decoration: underline;
     }
 
-    @media only screen and (max-width: 768px) {
-        font-size: 2rem;
-    }
+
 `;
 
 const AcquiredContent = styled.div`
@@ -296,7 +234,6 @@ const Portfolio = () => {
     const value = useRef();
     const [letterUnit, setLetterUnit] = useState();
     const [isClick, setIsClick] = useState(false);
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
     
     useEffect(() => {
         let letter = value.current.innerText.split("");
@@ -305,10 +242,6 @@ const Portfolio = () => {
 
     const clickAcquired = () => {
         setIsClick(!isClick);
-    }
-
-    const buttonClick = () => {
-        setIsButtonClicked(!isButtonClicked);
     }
 
 
@@ -323,14 +256,6 @@ const Portfolio = () => {
                             <LetterSpan>{letter}</LetterSpan>
                             )
                         })}
-
-                    <Button 
-                        onClick={buttonClick}
-                        bgURL={require(`assets/explainButton-1.png`).default} 
-                    />
-                    <ExplainArea isButtonClicked={isButtonClicked}>
-                        노란색 글자를 클릭하시면 링크나 토글이 생성됩니다
-                    </ExplainArea>
                 </MainTitle>
 
                 <SlideContainer>
@@ -352,7 +277,7 @@ const Portfolio = () => {
                                     <Summary># 사용한 언어 및 API </Summary>
                                     <Content>React, CSS(Styled Component), TMDB API(The Movie DB) </Content>
                                 </Information>
-                                <Acquired onClick={clickAcquired}> # 프로젝트를 만들면서 습득한지식</Acquired>
+                                <Click> <Acquired onClick={clickAcquired} isClick={isClick}> # 프로젝트를 만들면서 습득한지식</Acquired> ☜ 클릭</Click>
                                 <AcquiredContent isClick={isClick}>
                                     <Item>&#10003;  React Router에서 Redirect, Switch, BrowserRouter와 HashRouter등을 배움 <br /></Item>
                                     <Item>&#10003;  JSX표현식을 배움 <br /></Item>
@@ -384,7 +309,7 @@ const Portfolio = () => {
                                     <Summary># 사용한 언어 및 API </Summary>
                                     <Content>React, CSS(Styled Component), Riot API</Content>
                                 </Information>
-                                <Acquired onClick={clickAcquired}> # 프로젝트를 만들면서 습득한지식</Acquired>
+                                <Click> <Acquired onClick={clickAcquired} isClick={isClick}> # 프로젝트를 만들면서 습득한지식 </Acquired> ☜ 클릭</Click>
                                 <AcquiredContent isClick={isClick}>
                                     <Item>&#10003;  API정보의 필요없는 문자를 제거하기위해, 문자열변환식(indexOf, split, replace등), 정규표현식의 사용함으로써, 이의 용도를 알게됨.<br /></Item>
                                     <Item>&#10003;  styled-componennt에서 props, keyframe, css의 상속등을 배움<br /></Item>
