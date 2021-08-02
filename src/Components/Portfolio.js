@@ -299,12 +299,14 @@ const Portfolio = () => {
                                 <GitHubLink># 깃허브: <a href="https://github.com/christar99/lolcord" target="_black">https://github.com/christar99/lolcord</a></GitHubLink>
                                 <Information isClick={isClick}>
                                     <Summary># 개요</Summary>
-                                    <Content>게임 리그오브레전드의 아이템정보를 찾아볼 수 있는 웹사이트</Content>
+                                    <Content>게임 리그오브레전드의 아이템정보와 챔피언정보를 찾아볼 수 있는 웹사이트</Content>
                                     <Summary># 역할 및 기능 </Summary>
                                     <Content>
                                         &#10003;  아이템 검색 &amp; 필터 기능 <br />
-                                        &#10003;  상세보기 <br />
-                                        &#10003;  조합식
+                                        &#10003;  아이템 상세보기, 조합식 <br />
+                                        &#10003;  챔피언 검색 &amp; 필터 기능 <br />
+                                        &#10003;  챔피언카드 클릭시, 상세챔피언 페이지로 이동. <br />
+                                        &#10003;  챔피언상세페이지에서 개요, 스킬, 스킨탭으로 이동가능
                                     </Content>
                                     <Summary># 사용한 언어 및 API </Summary>
                                     <Content>React, CSS(Styled Component), Riot API</Content>
@@ -313,7 +315,7 @@ const Portfolio = () => {
                                 <AcquiredContent isClick={isClick}>
                                     <Item>&#10003;  API정보의 필요없는 문자를 제거하기위해, 문자열변환식(indexOf, split, replace등), 정규표현식의 사용함으로써, 이의 용도를 알게됨.<br /></Item>
                                     <Item>&#10003;  styled-componennt에서 props, keyframe, css의 상속등을 배움<br /></Item>
-                                    <Item>&#10003;  미디어쿼리를 처음 배우고, 이를 적용<br /></Item>
+                                    <Item>&#10003;  미디어쿼리를 처음 배우고, 이를 적용해서 반응형웹 구축<br /></Item>
                                 </AcquiredContent>
                             </Description>
                         </Portfolios>
