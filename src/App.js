@@ -19,7 +19,7 @@ class App extends React.Component {
                     navigation={true}
                     navigationPosition="left"
                     showActiveTooltip={true}
-                    navigationTooltips={['Home','Skills','Portfolio', 'ContactMe']}
+                    navigationTooltips={['Home','Skills','Project', 'ContactMe']}
                     loopBottom={true}
                     scrollingSpeed={1500}
                     render={({state, fullpageApi}) => {

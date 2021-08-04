@@ -248,7 +248,7 @@ const Portfolio = () => {
     return (
         <Section className="section">
             <Container>
-                <HiddenValue HiddenValue ref={value}>Portfolio</HiddenValue>
+                <HiddenValue HiddenValue ref={value}>Project</HiddenValue>
 
                 <MainTitle>
                     {letterUnit && letterUnit.map((letter, index) => {
